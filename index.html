@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WOM</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wdth,wght@0,87.5,100..900;1,87.5,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wdth,wght@0,87.5,100..900;1,87.5,100..900&family=Roboto:ital,wght@0,100..900&display=swap');
 
     body {
       background-color: #000;
@@ -70,33 +70,23 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
     import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
 
-    // Your Firebase app configuration
+    // Firebase configuration
     const firebaseConfig = {
-    apiKey: "AIzaSyD4yvFK8kwDn6x3WCxjx8Mgj6cj2In2ITY",
-    authDomain: "wom-ny.firebaseapp.com",
-    projectId: "wom-ny",
-    storageBucket: "wom-ny.firebasestorage.app",
-    messagingSenderId: "808765160685",
-    appId: "1:808765160685:web:385ff2b0d89cbccc20a0e4"
-  };
+      apiKey: "AIzaSyD4yvFK8kwDn6x3WCxjx8Mgj6cj2In2ITY",
+      authDomain: "wom-ny.firebaseapp.com",
+      projectId: "wom-ny",
+      storageBucket: "wom-ny.firebasestorage.app",
+      messagingSenderId: "808765160685",
+      appId: "1:808765160685:web:385ff2b0d89cbccc20a0e4"
+    };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-
-  // Initialize Firestore
-  const db = getFirestore(app);
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(emailInput)) {
-      errorMessage.style.display = 'block';
-      errorMessage.innerText = `Invalid email: ${emailInput}`;
-      successMessage.style.display = 'none';
-      return;
-    }
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
     // Submit Email Function
-    window.submitEmail = function() {
-      const emaitInput = document.getElementById('emailInput').value;
+    window.submitEmail = function () {
+      const emailInput = document.getElementById('emailInput').value;
       const errorMessage = document.getElementById('errorMessage');
       const successMessage = document.getElementById('successMessage');
 
@@ -108,21 +98,19 @@
         return;
       }
 
-    errorMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
 
-    // Add email to Firestore
-    addDoc(collection(db, "emails"), { email: emailInput })
-      .then(() => {
-        successMessage.style.display = 'block';
-        successMessage.innerText = 'Email stored successfully!';
-      })
-      .catch((error) => {
-        errorMessage.style.display = 'block';
-        errorMessage.innerText = `Error: ${error.message}`;
-        successMessage.style.display = 'none';
-      });
-  }
-</script>
-
-</head>
-<body>
+      addDoc(collection(db, "emails"), { email: emailInput })
+        .then(() => {
+          successMessage.style.display = 'block';
+          successMessage.innerText = 'Email stored successfully!';
+        })
+        .catch((error) => {
+          errorMessage.style.display = 'block';
+          errorMessage.innerText = `Error: ${error.message}`;
+          successMessage.style.display = 'none';
+        });
+    };
+  </script>
+</body>
+</html>
