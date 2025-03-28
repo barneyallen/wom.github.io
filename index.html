@@ -90,10 +90,9 @@
       const formData = new URLSearchParams();
     formData.append('email', emailInput);
 
-    fetch('<https://email-collector.barneyallen18.workers.dev>.workers.dev', {
+    fetch('<https://email-collector.barneyallen18.workers.dev>', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: formData.toString(),
     })
