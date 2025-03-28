@@ -86,8 +86,32 @@
         errorMessage.style.display = 'none';
         successMessage.style.display = 'block';
         successMessage.innerText = `Received: ${emailInput}`;
-      }
-    }
+        
+      const formData = new URLSearchParams();
+    formData.append('email', emailInput);
+
+    fetch('https://<https://email-collector.barneyallen18.workers.dev>.workers.dev', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: formData.toString(),
+    })
+      .then(response => {
+        if (response.ok) {
+          successMessage.innerText = 'Email successfully collected!';
+        } else {
+          errorMessage.innerText = 'Failed to submit email.';
+          successMessage.style.display = 'none';
+        }
+      })
+      .catch(error => {
+        errorMessage.style.display = 'block';
+        errorMessage.innerText = `Error: ${error.message}`;
+        successMessage.style.display = 'none';
+      });
+  }
+}
   </script>
 </body>
 </html>
