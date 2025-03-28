@@ -60,9 +60,9 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
   import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
 
-  // Your web app's Firebase configuration
+  // Your Firebase app configuration
   const firebaseConfig = {
-    apiKey: "YOUR_API_KEY", // Replace with your actual API key
+    apiKey: "YOUR_API_KEY",
     authDomain: "YOUR_AUTH_DOMAIN",
     projectId: "YOUR_PROJECT_ID",
     storageBucket: "YOUR_STORAGE_BUCKET",
@@ -75,6 +75,34 @@
 
   // Initialize Firestore
   const db = getFirestore(app);
+
+  function submitEmail() {
+    const emailInput = document.getElementById('emailInput').value;
+    const errorMessage = document.getElementById('errorMessage');
+    const successMessage = document.getElementById('successMessage');
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailInput)) {
+      errorMessage.style.display = 'block';
+      errorMessage.innerText = `Invalid email: ${emailInput}`;
+      successMessage.style.display = 'none';
+      return;
+    }
+
+    errorMessage.style.display = 'none';
+
+    // Add email to Firestore
+    addDoc(collection(db, "emails"), { email: emailInput })
+      .then(() => {
+        successMessage.style.display = 'block';
+        successMessage.innerText = 'Email stored successfully!';
+      })
+      .catch((error) => {
+        errorMessage.style.display = 'block';
+        errorMessage.innerText = `Error: ${error.message}`;
+        successMessage.style.display = 'none';
+      });
+  }
 </script>
 
 </head>
