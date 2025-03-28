@@ -55,13 +55,23 @@
       margin-top: 10px;
       display: none;
     }
-  <script type="module">
-  // Import Firebase App and Firestore
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
+  </style>
+</head>
+<body>
+  <div class="email-form">
+    <input type="email" id="emailInput" placeholder="Enter email">
+    <button onclick="submitEmail()">Submit</button>
+    <div id="errorMessage" class="error-message">Invalid email.</div>
+    <div id="successMessage" class="success-message">Email stored successfully!</div>
+  </div>
 
-  // Your Firebase app configuration
-  const firebaseConfig = {
+  <script type="module">
+    // Import Firebase App and Firestore
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
+
+    // Your Firebase app configuration
+    const firebaseConfig = {
     apiKey: "AIzaSyD4yvFK8kwDn6x3WCxjx8Mgj6cj2In2ITY",
     authDomain: "wom-ny.firebaseapp.com",
     projectId: "wom-ny",
