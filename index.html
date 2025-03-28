@@ -43,21 +43,33 @@
       border: none;
       cursor: pointer;
     }
+      .error-message {
+      color: #d9534f;
+      font-size: 10px;
+      margin-top: 10px;
+      display: none;
+    }
   </style>
 </head>
 <body>
   <div class="email-form">
-    <input type="email" id="emailInput" placeholder="Enter your email">
+    <input type="email" id="emailInput" placeholder="Enter email">
     <button onclick="submitEmail()">Submit</button>
+    <div id="errorMessage" class="error-message">Invalid email g.</div>
   </div>
 
   <script>
-    function submitEmail() {
-      const email = document.getElementById('emailInput').value;
-      if (email) {
-        alert("You entered: " + email);
+    function validateEmail() {
+      const emailInput = document.getElementById('emailInput').value;
+      const errorMessage = document.getElementById('errorMessage');
+
+      // Check email validity
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailInput)) {
+        errorMessage.style.display = 'block'; // Show error message
       } else {
-        alert("Please enter a valid email address.");
+        errorMessage.style.display = 'none'; // Hide error message
+        alert("Recieved: " + emailInput);
       }
     }
   </script>
