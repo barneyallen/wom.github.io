@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WOM</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Doto:wght@400&display=swap');
 
     body {
       background-color: #000;
-      color: #0f0; /* Green text for retro vibe */
+      color: #0f0; /* Green text */
       margin: 0;
       padding: 0;
-      font-family: 'Press Start 2P', monospace; /* Retro font */
+      font-family: 'Doto', monospace; /* Digital-style font */
       height: 100vh;
     }
     .email-form {
@@ -22,32 +22,28 @@
     }
     input[type="email"] {
       padding: 10px;
-      font-size: 14px;
-      font-family: 'Press Start 2P', monospace;
-      border: 2px solid #0f0; /* Green border for retro style */
-      background-color: black; /* Black input box */
-      color: #0f0; /* Green text */
+      font-size: 16px;
+      font-family: 'Doto', monospace;
+      border: none;
+      background-color: #fff;
+      color: #000; /* Black text */
       width: 200px;
-      height: 30px; /* Make it perfectly square-ish */
+      height: 30px;
     }
     button {
       padding: 10px 20px;
-      font-size: 14px;
-      font-family: 'Press Start 2P', monospace;
-      background-color: #000;
-      color: #0f0;
-      border: 2px solid #0f0; /* Retro button border */
+      font-size: 16px;
+      font-family: 'Doto', monospace;
+      background-color: #fff;
+      color: #000;
+      border: none;
       cursor: pointer;
-    }
-    button:hover {
-      background-color: #0f0;
-      color: #000; /* Hover effect */
     }
   </style>
 </head>
 <body>
   <div class="email-form">
-    <input type="email" id="emailInput" placeholder="Email">
+    <input type="email" id="emailInput" placeholder="Enter your email">
     <button onclick="submitEmail()">Submit</button>
   </div>
 
