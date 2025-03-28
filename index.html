@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Input Top Left</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+    }
+    /* Position the email form in the top left */
+    .email-form {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+    input[type="email"] {
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-left: 10px;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-form">
+    <input type="email" id="emailInput" placeholder="Enter your email">
+    <button onclick="submitEmail()">Submit</button>
+  </div>
+
+  <script>
+    function submitEmail() {
+      const email = document.getElementById('emailInput').value;
+      if(email) {
+        alert("You entered: " + email);
+      } else {
+        alert("Please enter a valid email address.");
+      }
+    }
+  </script>
+</body>
+</html>
