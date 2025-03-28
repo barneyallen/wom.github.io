@@ -49,6 +49,12 @@
       margin-top: 10px;
       display: none;
     }
+    .success-message {
+      color: #28a745;
+      font-size: 10px;
+      margin-top: 10px;
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -62,13 +68,16 @@
     function submitEmail() {
       const emailInput = document.getElementById('emailInput').value;
       const errorMessage = document.getElementById('errorMessage');
+      const successMessage = document.getElementById('successMessage');
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(emailInput)) {
         errorMessage.style.display = 'block';
+        successMessage.style.display = 'none';
       } else {
         errorMessage.style.display = 'none';
-        alert("Recieved: " + emailInput);
+        successMessage.style.display = 'block';
+        successMessage.innerText = 'Received: ${emailInput}';
       }
     }
   </script>
