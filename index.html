@@ -15,7 +15,7 @@
       font-family: 'Noto Sans', sans-serif;
       display: flex;
       justify-content: center;
-      align-items: center; /* flex-start for top */
+      align-items: center;
       height: 100vh;
     }
     .email-form {
@@ -43,7 +43,7 @@
       border: none;
       cursor: pointer;
     }
-      .error-message {
+    .error-message {
       color: #d9534f;
       font-size: 10px;
       margin-top: 10px;
@@ -55,61 +55,24 @@
       margin-top: 10px;
       display: none;
     }
-    <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyD4yvFK8kwDn6x3WCxjx8Mgj6cj2In2ITY",
-    authDomain: "wom-ny.firebaseapp.com",
-    projectId: "wom-ny",
-    storageBucket: "wom-ny.firebasestorage.app",
-    messagingSenderId: "808765160685",
-    appId: "1:808765160685:web:385ff2b0d89cbccc20a0e4"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-</script>
   </style>
+  <script type="module">
+    // Import the Firebase SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyD4yvFK8kwDn6x3WCxjx8Mgj6cj2In2ITY",
+      authDomain: "wom-ny.firebaseapp.com",
+      projectId: "wom-ny",
+      storageBucket: "wom-ny.firebasestorage.app",
+      messagingSenderId: "808765160685",
+      appId: "1:808765160685:web:385ff2b0d89cbccc20a0e4"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    console.log("Firebase initialized:", app);
+  </script>
 </head>
 <body>
-  <div class="email-form">
-    <input type="email" id="emailInput" placeholder="Enter email">
-    <button onclick="submitEmail()">Submit</button>
-    <div id="errorMessage" class="error-message">Invalid.</div>
-    <div id="successMessage" class="success-message"></div>
-  </div>
-
-  <script>
-    document.getElementById('emailInput').addEventListener('keypress', function (event) {
-  if (event.key === 'Enter') {
-    submitEmail();
-  }
-});
-    
-    function submitEmail() {
-      const emailInput = document.getElementById('emailInput').value;
-      const errorMessage = document.getElementById('errorMessage');
-      const successMessage = document.getElementById('successMessage');
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(emailInput)) {
-        errorMessage.style.display = 'block';
-        errorMessage.innerText = `Invalid: ${emailInput}`;
-        successMessage.style.display = 'none';
-      } else {
-        errorMessage.style.display = 'none';
-        successMessage.style.display = 'block';
-        successMessage.innerText = `Received: ${emailInput}`;
-        
-      const formData = new URLSearchParams();
-    formData.append('email', emailInput);
-  }
-}
-  </script>
-</body>
-</html>
