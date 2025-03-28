@@ -80,6 +80,7 @@
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(emailInput)) {
         errorMessage.style.display = 'block';
+        errorMessage.innerText = `Invalid: ${emailInput}`;
         successMessage.style.display = 'none';
       } else {
         errorMessage.style.display = 'none';
