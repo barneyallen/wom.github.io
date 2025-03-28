@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>word of mouth</title>
+  <title>WOM</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
     body {
       background-color: #000;
-      color: #fff;
+      color: #0f0; /* Green text for retro vibe */
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Press Start 2P', monospace; /* Retro font */
       height: 100vh;
     }
-    /* Position the email form in the top left */
     .email-form {
       position: absolute;
       top: 20px;
@@ -21,19 +22,26 @@
     }
     input[type="email"] {
       padding: 10px;
-      font-size: 16px;
-      border: none;
-      border-radius: 4px;
+      font-size: 14px;
+      font-family: 'Press Start 2P', monospace;
+      border: 2px solid #0f0; /* Green border for retro style */
+      background-color: black; /* Black input box */
+      color: #0f0; /* Green text */
+      width: 200px;
+      height: 30px; /* Make it perfectly square-ish */
     }
     button {
       padding: 10px 20px;
-      font-size: 16px;
-      margin-left: 10px;
-      background-color: #fff;
-      color: #000;
-      border: none;
-      border-radius: 4px;
+      font-size: 14px;
+      font-family: 'Press Start 2P', monospace;
+      background-color: #000;
+      color: #0f0;
+      border: 2px solid #0f0; /* Retro button border */
       cursor: pointer;
+    }
+    button:hover {
+      background-color: #0f0;
+      color: #000; /* Hover effect */
     }
   </style>
 </head>
