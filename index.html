@@ -59,16 +59,15 @@
   </div>
 
   <script>
-    function validateEmail() {
+    function submitEmail() {
       const emailInput = document.getElementById('emailInput').value;
       const errorMessage = document.getElementById('errorMessage');
 
-      // Check email validity
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(emailInput)) {
-        errorMessage.style.display = 'block'; // Show error message
+        errorMessage.style.display = 'block';
       } else {
-        errorMessage.style.display = 'none'; // Hide error message
+        errorMessage.style.display = 'none';
         alert("Recieved: " + emailInput);
       }
     }
