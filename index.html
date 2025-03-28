@@ -86,11 +86,6 @@
   // Initialize Firestore
   const db = getFirestore(app);
 
-  function submitEmail() {
-    const emailInput = document.getElementById('emailInput').value;
-    const errorMessage = document.getElementById('errorMessage');
-    const successMessage = document.getElementById('successMessage');
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(emailInput)) {
       errorMessage.style.display = 'block';
@@ -98,6 +93,20 @@
       successMessage.style.display = 'none';
       return;
     }
+
+    // Submit Email Function
+    window.submitEmail = function() {
+      const emaitInput = document.getElementById('emailInput').value;
+      const errorMessage = document.getElementById('errorMessage');
+      const successMessage = document.getElementById('successMessage');
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailInput)) {
+        errorMessage.style.display = 'block';
+        errorMessage.innerText = `Invalid email: ${emailInput}`;
+        successMessage.style.display = 'none';
+        return;
+      }
 
     errorMessage.style.display = 'none';
 
