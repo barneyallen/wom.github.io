@@ -62,20 +62,20 @@
     <input type="email" id="emailInput" placeholder="Enter email">
     <button onclick="submitEmail()">Submit</button>
     <div id="errorMessage" class="error-message">Invalid email g.</div>
-    <div id=successMessage" class="success-message"></div>
+    <div id="successMessage" class="success-message"></div>
   </div>
 
   <script>
-    function submitEmail() {
-      const emailInput = document.getElementById('emailInput').value;
-      const errorMessage = document.getElementById('errorMessage');
-      const successMessage = document.getElementById('successMessage');
-      
-      document.getElementById('emailInput').addEventListener('keypress', function (event) {
+    document.getElementById('emailInput').addEventListener('keypress', function (event) {
   if (event.key === 'Enter') {
     submitEmail();
   }
 });
+    
+    function submitEmail() {
+      const emailInput = document.getElementById('emailInput').value;
+      const errorMessage = document.getElementById('errorMessage');
+      const successMessage = document.getElementById('successMessage');
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(emailInput)) {
